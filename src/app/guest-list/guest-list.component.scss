@@ -1,0 +1,37 @@
+.filter-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px;
+  background: #f5f5f5;
+}
+
+.scroll-container {
+  height: 400px;
+  border: 1px solid #ddd;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.filter-container mat-form-field,
+.filter-container button {
+  flex: 1 1 80px; /* Set the width of each form field and button to 100px */
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-container mat-form-field,
+  .filter-container button {
+    flex: 1 1 calc(50% - 10px); /* Make each field and button take half the width on smaller screens */
+  }
+}

@@ -1,0 +1,18 @@
+<h2 mat-dialog-title style="padding-left: 16px">Camera</h2>
+
+<div mat-dialog-content class="content">
+  <video #videoElement autoplay class="video"></video>
+
+  <mat-radio-group [(ngModel)]="isFrontCamera" (change)="switchCamera()">
+    <mat-radio-button [value]="true">Front Camera</mat-radio-button>
+    <mat-radio-button [value]="false">Back Camera</mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<div mat-dialog-actions style="padding-left: 16px">
+  <button mat-raised-button (click)="save()" color="primary">
+    Take Picture
+  </button>
+  &nbsp;
+  <button mat-raised-button (click)="cancel()" color="accent">Cancel</button>
+</div>

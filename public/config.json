@@ -1,0 +1,3 @@
+{
+  "shellyDeviceUrl": "http://<shelly-device-ip>/relay/0/on"
+}

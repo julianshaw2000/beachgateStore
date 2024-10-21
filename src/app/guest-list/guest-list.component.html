@@ -1,0 +1,77 @@
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>From Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="fromPicker"
+      [formControl]="fromDateControl"
+      (focus)="clearInput(fromDateControl)"
+    />
+    <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fromPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>To Date</mat-label>
+    <input
+      matInput
+      [matDatepicker]="toPicker"
+      [formControl]="toDateControl"
+      (focus)="clearInput(toDateControl)"
+    />
+    <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+    <mat-datepicker #toPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input
+      matInput
+      [formControl]="lastnameControl"
+      (focus)="clearInput(lastnameControl)"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apartment</mat-label>
+    <input
+      matInput
+      [formControl]="apartmentControl"
+      (focus)="clearInput(apartmentControl)"
+    />
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="applyFilter()"
+    style="height: 55px"
+  >
+    Filter
+  </button>
+</div>
+
+<!-- Scrollable content for filtered guests -->
+<cdk-virtual-scroll-viewport itemSize="50" class="scroll-container">
+  <ng-container *ngIf="filteredGuests.length > 0; else noResults">
+    <mat-list>
+      <mat-list-item *cdkVirtualFor="let guest of filteredGuests">
+        {{ guest.firstname }} {{ guest.lastname }} - {{ guest.apartment }} -
+        {{ formatFirestoreTimestamp(guest.enterdate) }}
+
+        <button
+          mat-icon-button
+          (click)="openImageDialog(guest)"
+          style="font-size: 18px; padding: 0 8px"
+        >
+          <mat-icon style="font-size: 18px">photo_camera</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </ng-container>
+
+  <!-- Template for "No results" message -->
+  <ng-template #noResults>
+    <h2>No results</h2>
+  </ng-template>
+</cdk-virtual-scroll-viewport>

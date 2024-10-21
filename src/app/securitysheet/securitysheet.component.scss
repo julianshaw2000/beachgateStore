@@ -1,0 +1,74 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: lightblue; /* Moved from inline style */
+}
+
+.gate-card {
+  display: flex;                /* Enables flexbox layout */
+  justify-content: center;      /* Horizontally centers content */
+  align-items: center;          /* Vertically centers content */
+  padding: 20px;                /* Adds padding around the card */
+  background-color: lightblue;  /* Sets the background color */
+  width: 80%;                   /* Makes the card take up 80% of the screen */
+  margin: 0 auto;               /* Centers the card horizontally in its parent */
+  flex-direction: row;          /* Makes items in a horizontal row (default) */
+}
+
+
+button {
+  margin-top: 10px;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+.captured-image img {
+  margin-top: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.gate-button {
+  padding: 40px;
+  font-size: 24px;
+}
+
+.success-snackbar {
+  background-color: #4caf50;  // Green for success
+  color: white;
+}
+
+.error-snackbar {
+  background-color: #f44336;  // Red for error
+  color: white;
+}
